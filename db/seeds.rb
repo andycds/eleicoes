@@ -27,7 +27,7 @@ cNu = Candidate.create(nome: "Voto Nulo")
 
 c81 = Candidate.create(nome: "Candidato 1", election: e8)
 c82 = Candidate.create(nome: "Candidato 2", election: e8)
-c83 = Candidate.create(nome: "Candidato 3", election: e8)
+#c83 = Candidate.create(nome: "Candidato 3", election: e8)
 
 #123
 pass = "$2a$10$VUV4fDA3cA.MqOMQsus1BejyOUJRR1VpjwhzaY79EBW5ehO74wu0."
@@ -37,7 +37,9 @@ pass = "$2a$10$VUV4fDA3cA.MqOMQsus1BejyOUJRR1VpjwhzaY79EBW5ehO74wu0."
 	#Person.create(nome: "Eleitor CONRE-5 #{i}", conselho: "CONRE5", documento: "50000#{i}", election: e5, password_digest: pass)
 end
 
-
+0.upto(9) do |i|
+	Person.create(nome: "Eleitor Teste 8 - #{i}", conselho: "CONRE8", documento: "80001#{i}", election: e8, password_digest: pass)
+end
 # Eleitores CONRE-2
 
 ########require "#{Rails.root}/db/conre2.rb"

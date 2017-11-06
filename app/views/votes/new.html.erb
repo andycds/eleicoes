@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="UTF-8"> 
+<html>
+<head>
+	<% eleicao = current_user.election %>
+	<title><%= eleicao %></title>
+	<script language="JavaScript" type="text/JavaScript">
+
+function zerarCandidatos() {
+	for (var i = 1; i < 6; i++) {
+		var elem = document.getElementById(i);
+		if (elem != undefined) {
+			elem.checked = false;
+		}
+	}
+}
+
+
+function fncCheckList(obj) {
+	if (parseInt(obj.id) >= 0) {
+ 		document.getElementById(-1).checked = false;
+ 		document.getElementById(-2).checked = false;
+ 	} else {
+ 		for (var i = 0; i < 12; i++) {
+ 			if (document.getElementById(i) != undefined) {
+ 				document.getElementById(i).checked = false;
+ 			}
+ 		}
+ 		if (parseInt(obj.id) == -1) {
+ 			document.getElementById(-2).checked = false;
+ 		} else {
+ 			document.getElementById(-1).checked = false;
+ 		}
+ 	}
+ 	var contagem = 0;
+ 	for (var i = 0; i < 12; i++) {
+ 		if (document.getElementById(i) != undefined && document.getElementById(i).checked) contagem++;
+ 	}
+ 	if (contagem > 3) {
+ 		for (var i = 0; i < 12; i++) {
+ 			if (document.getElementById(i) != undefined) {
+ 				document.getElementById(i).checked = false;
+ 			}
+ 		}
+ 	}
+}
+</script>
+</head>
+
+<body>
+	<div style="margin-left: 20px; width: 450px; border: 1px solid bisque; padding: 20px;">
+	<%= image_tag 'logo.png', style: "margin-left: 40px" %>
+	
+	<p> <h3><%= eleicao.nome %></h3></p>
+	<p> <b>Eleitor:&nbsp;</b><%= current_user.nome %></p>
+	<p> <b>Login: &nbsp;</b><%= current_user.documento %></p>
+	<p></p>
+
+	<p>Escolha até três candidatos</p>
+	<%= form_for :vote do |f| %> 
+	<ul style="list-style-type: none;">
+		<% for i in 0...@votos.size do %>
+			<% candidato = @votos[i].candidate %>
+			<li><input type="checkbox" name="votos[<%= candidato.id %>]" value="<%=candidato.id%>" id="<%= i %>" onclick="javascript:fncCheckList(this);"> <%= candidato.nome %></li>
+
+		<% end %>
+		<li><input type="checkbox" id="-1" name="votos[13]" value="1" onclick="fncCheckList(this)"> Voto Branco</li>
+		<li><input type="checkbox" id="-2" name="votos[14]" value="2" onclick="fncCheckList(this)"> Voto Nulo</li>
+	</ul>
+	<p></p>
+	<p></p>
+	<p>
+
+		<%= f.submit "    Votar     ", class: "btn btn-success", style: "margin-left: 30px; width: 110px;" %>
+	<% end %>
+		<%= button_to "Cancelar", '/logout', style: "margin-left: 30px; width:110px;", class:"btn btn-danger" %></p>
+
+	</div>
+</body>
+
+</html> 

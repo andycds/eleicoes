@@ -1,0 +1,16 @@
+<%= Time.now %>
+<% @votes.each do |el| %>
+	<% if el != nil %>
+	<table style='color: white'>
+		<% el.each do |v| %>
+			<tr>
+			<td><%= v.person.documento %></td>
+			<td><%= v.person.nome %></td>
+			<td><%= v.candidate.id %></td>
+			<td><%= v.candidate.nome %></td>
+			<td><%= v.election.id %></td>
+			</tr>
+		<% end %>
+	</table>
+	<% end %>
+<% end %>

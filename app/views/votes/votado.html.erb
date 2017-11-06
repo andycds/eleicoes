@@ -1,0 +1,13 @@
+<head>
+	<meta http-equiv="REFRESH" content="1; URL=/pdfdown">
+</head>
+<div style="width: 400px; border: 1px solid gray; margin: 10px; padding:10px;">
+<h3>Votado!</h3>
+<br/>
+<p>Eleitor: <%= @person.nome %></p>
+<p>Documento: <%= @person.documento %></p>
+<p>Timestamp do servidor: <%= @voto.updated_at %></p>
+<br/>
+</div>
+<p style="color: red; margin-left: 15px;">(gerando pdf...) Imprima e guarde seu comprovante</p>
+<p><%= button_to "  Sair  ", '/logout', style: "margin-left: 10px;", class: "btn btn-info" %></p>

@@ -14,6 +14,7 @@ gem 'pg', '>=0.17.1'
 gem 'pdfkit'
 #wkhtmltopdf
 #gem 'wkhtmltopdf'
+gem 'wkhtmltopdf-heroku'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

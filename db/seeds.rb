@@ -42,7 +42,7 @@ end
 end
 # Eleitores CONRE-2
 
-require "#{Rails.root}/db/conre2.rb"
+#require "#{Rails.root}/db/conre2.rb"
 
 # Eleitores CONRE-3
 

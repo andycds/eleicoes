@@ -3,10 +3,8 @@ e5 = Election.where('nome LIKE ?', "%CONRE-4%").first
 
 # Candidatos CONRE-4
 
-c51 = Candidate.create(nome: "Aishameriane Venes Schmidt - Registro: 9270;".titleize, election: e5)
-c52 = Candidate.create(nome: "Valéria Dozolina Sartori Bassani - Registro: 6427".titleize, election: e5)
-c53 = Candidate.create(nome: "Rafael Bassegio Caumo - Registro: 9036".titleize, election: e5)
-
+c51 = Candidate.create(nome: "Gabriel Afonso Marchesi Lopes".titleize, election: e5)
+c52 = Candidate.create(nome: "Marilene Dias Bandeira".titleize, election: e5)
 
 # Eleitores CONRE-4
 

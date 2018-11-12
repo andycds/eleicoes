@@ -6,11 +6,19 @@ class VotesController < ApplicationController
 		#	redirect_to '/login'
 		#	return
 		#end
+		if current_user.documento == "master"
+			redirect_to '/people'
+			return
+		end
 		if current_user.ja_votou?
 			redirect_to '/votado'
 			return
 		end
-		
+		if !current_user.apto_votar
+			redirect_to '/naoapto'
+			return
+		end
+
 		candidatos = current_user.election.candidates
 		@votos = Array.new candidatos.size
 		for i in 0...candidatos.size

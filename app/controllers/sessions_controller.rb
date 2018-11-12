@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 	end
 	def create
 		@person = Person.find_by_documento(params[:session][:documento])
-		if @person && @person.authenticate(params[:session][:password]) && @person.election.valida?
+		if @person && @person.authenticate(params[:session][:password]) && @person.election.valida?(@person.documento)
 			session[:person_id] = @person.id
 			redirect_to '/'
 		else
@@ -23,4 +23,11 @@ class SessionsController < ApplicationController
 		flash[:notice] = "Logout efetuado."
 		redirect_to '/login'
 	end
+
+	def naoapto
+		session[:person_id] = nil
+		flash[:notice] = "Não apto para votar. Entre em contato com o IBA."
+		redirect_to '/login'
+	end		
+
 end

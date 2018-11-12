@@ -75,6 +75,7 @@ GEM
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     pdfkit (0.8.2)
+    pg (0.18.4)
     rack (1.6.11)
     rack-protection (1.5.5)
       rack
@@ -171,6 +172,7 @@ DEPENDENCIES
   jbuilder (>= 2.0)
   jquery-rails
   pdfkit
+  pg (~> 0.18.4)
   rails (= 4.2.10)
   rails_12factor
   sass-rails (>= 5.0)

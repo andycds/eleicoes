@@ -82,10 +82,10 @@ class PeopleController < ApplicationController
   # DELETE /people/1.json
   def destroy
     sender = @person.conselho == "CONRE2" ? "eleicoes@conre2.org.br" : "eleicoes@conre4.org.br"
-    from = SendGrid::Email.new(email: 'eleicoesCONRE@CONRE')
+    from = SendGrid::Email.new(email: sender)
     subject = 'ELEIÇÕES 2018 - CONRE'
     to = SendGrid::Email.new(email: @person.email)
-    login = @person.documento[1, @person.documento.size]
+    login = @person.documento
     sua_senha_eh = "<html><body><p>" +
       "Prezado(a)</p>" +
       "<p></p>" +

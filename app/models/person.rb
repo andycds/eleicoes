@@ -6,20 +6,22 @@ class Person < ActiveRecord::Base
 		return Vote.find_by_person_id(self.id) != nil
 	end
 
-		def send_email
+	def send_email
 		if self.email.present? && self.apto_votar
 			#puts self.documento + " " + self.email + ' ' + self.apto_votar.to_s
 			#sleep 1
-			from = SendGrid::Email.new(email: 'eleicoesCONRE@CONRE')
+			sender = @person.conselho == "CONRE2" ? "eleicoes@conre2.org.br" : "eleicoes@conre4.org.br"
+			from = SendGrid::Email.new(email: sender)
     		subject = 'ELEIÇÕES 2018 - CONRE'
     		to = SendGrid::Email.new(email: self.email)
-    		login = self.documento[1, self.documento.size]
+    		login = self.documento
     		sua_senha_eh = "<html><body><p>" +
 				"Prezado(a)</p>" +
 				"<p>Estamos encaminhando a seguir o seu login e a sua senha para que você possa exercer o seu direito de votação:</p>" +
 				"<p></p>" +
       			"<p><b>LOGIN: " + login + "</b></p>" +
-      			"<p><b>SENHA: " + self.senha +  "</b></p>" +
+      			"<p><b>SENHA: " + self.senha.to_s + "</b></p>" +
+      			"<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +
       			"<p></p>" +
       			"<p><b>Obs: login/senha são informações individuais de inteira única e exclusiva responsabilidade do eleitor. Em caso de perda do login/senha entre em contato com o CONRE</b></p>" +
       			"<p>Exerça o seu direito e vote pela internet. Sua participação no processo eleitoral é muito importante.</p>".to_s
@@ -33,5 +35,4 @@ class Person < ActiveRecord::Base
 			end
 		end
 	end
-
 end

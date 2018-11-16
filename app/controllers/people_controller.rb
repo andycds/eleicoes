@@ -115,7 +115,7 @@ class PeopleController < ApplicationController
   end
 
   def redirecionar_sem_acesso?
-    redirect_to '/login' unless current_user != nil && !current_user.documento.start_with? "master"
+    redirect_to '/login' unless (current_user != nil && !current_user.documento.start_with?("master"))
   end
 
   private

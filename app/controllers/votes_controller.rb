@@ -6,7 +6,8 @@ class VotesController < ApplicationController
 		#	redirect_to '/login'
 		#	return
 		#end
-		if current_user.documento.start_with? "master"
+		if current_user.documento.start_with?("master")
+			print current_user.documento + "***************************************************************"
 			redirect_to '/people'
 			return
 		end

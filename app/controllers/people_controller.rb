@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
   def index
     #@people = Person.all
     #@people = Person.where.not(documento: current_user.documento).and(.order(:documento)
-    @people = Person.where("conselho = ? and documento not ilike 'master%'", current_user.conselho)
+    @people = Person.where("conselho = ? and documento not like 'master%'", current_user.conselho).order(:documento)
   end
 
   # GET /people/1
@@ -115,7 +115,7 @@ class PeopleController < ApplicationController
   end
 
   def redirecionar_sem_acesso?
-    redirect_to '/login' unless (current_user != nil && !current_user.documento.start_with?("master"))
+    redirect_to '/login' unless (current_user != nil && current_user.documento.start_with?("master"))
   end
 
   private

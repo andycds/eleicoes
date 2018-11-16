@@ -1,0 +1,5 @@
+--> heroku run rake db:reset
+
+
+heroku run rake db:migrate:reset
+heroku run rake db:seed

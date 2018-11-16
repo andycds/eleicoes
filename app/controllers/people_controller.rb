@@ -9,7 +9,8 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     #@people = Person.all
-    @people = Person.where.not(documento: current_user.documento).order(:documento)
+    #@people = Person.where.not(documento: current_user.documento).and(.order(:documento)
+    @people = Person.where("conselho = ? and documento not ilike 'master%'", current_user.conselho)
   end
 
   # GET /people/1
@@ -80,6 +81,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
+    sender = @person.conselho == "CONRE2" ? "eleicoes@conre2.org.br" : "eleicoes@conre4.org.br"
     from = SendGrid::Email.new(email: 'eleicoesCONRE@CONRE')
     subject = 'ELEIÇÕES 2018 - CONRE'
     to = SendGrid::Email.new(email: @person.email)
@@ -91,7 +93,9 @@ class PeopleController < ApplicationController
       "<p></p>" +
       "<p><b>LOGIN: " + login + "</b></p>" +
       "<p><b>SENHA: " + @person.senha.to_s +  "</b></p>" +
+      "<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +
       "<p></p>" +
+
       "<p><b>Obs: login/senha são informações individuais de inteira única e exclusiva responsabilidade do eleitor. Em caso de perda do login/senha entre em contato com o seu CONRE</b></p>" +
       "<p>Exerça o seu direito e vote pela internet. Sua participação no processo eleitoral é muito importante.</p>".to_s
 
@@ -111,7 +115,7 @@ class PeopleController < ApplicationController
   end
 
   def redirecionar_sem_acesso?
-    redirect_to '/login' unless current_user != nil && current_user.documento == "master"
+    redirect_to '/login' unless current_user != nil && !current_user.documento.start_with? "master"
   end
 
   private

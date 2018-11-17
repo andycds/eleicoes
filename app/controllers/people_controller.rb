@@ -81,31 +81,31 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
-    sender = @person.conselho == "CONRE2" ? "eleicoes@conre2.org.br" : "eleicoes@conre4.org.br"
-    from = SendGrid::Email.new(email: sender)
-    subject = 'ELEIÇÕES 2018 - CONRE'
-    to = SendGrid::Email.new(email: @person.email)
-    login = @person.documento
-    sua_senha_eh = "<html><body><p>" +
-      "Prezado(a)</p>" +
-      "<p></p>" +
-      "<p>Estamos encaminhando a seguir o seu login e a sua senha para que você possa exercer o seu direito de votação:</p>" +
-      "<p></p>" +
-      "<p><b>LOGIN: " + login + "</b></p>" +
-      "<p><b>SENHA: " + @person.senha.to_s +  "</b></p>" +
-      "<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +
-      "<p></p>" +
+    #sender = @person.conselho == "CONRE2" ? "secretaria@conre2.org.br" : "eleicoes@conre4.org.br"
+    #from = SendGrid::Email.new(email: sender)
+    #subject = 'ELEIÇÕES 2018 - ' + @person.conselho + ' - login e senha'
+    #to = SendGrid::Email.new(email: @person.email)
+    #login = @person.documento
+    #sua_senha_eh = "<html><body><p>" +
+    #  "Prezado(a)</p>" +
+    #  "<p></p>" +
+    #  "<p>Estamos encaminhando a seguir o seu login e a sua senha para que você possa exercer o seu direito de votação:</p>" +
+    #  "<p></p>" +
+    #  "<p><b>LOGIN: " + login + "</b></p>" +
+    #  "<p><b>SENHA: " + @person.senha.to_s +  "</b></p>" +
+    #  "<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +
+    #  "<p></p>" +
+    #  "<p><b>Obs: login/senha são informações individuais de inteira única e exclusiva responsabilidade do eleitor. Em caso de perda do login/senha entre em contato com o seu CONRE</b></p>" +
+    #  "<p>Exerça o seu direito e vote pela internet. Sua participação no processo eleitoral é muito importante.</p>".to_s
 
-      "<p><b>Obs: login/senha são informações individuais de inteira única e exclusiva responsabilidade do eleitor. Em caso de perda do login/senha entre em contato com o seu CONRE</b></p>" +
-      "<p>Exerça o seu direito e vote pela internet. Sua participação no processo eleitoral é muito importante.</p>".to_s
-
-    content = SendGrid::Content.new(type: 'text/html', value: sua_senha_eh)
-    mail = SendGrid::Mail.new(from, subject, to, content)
-    send_gri_api_key = ENV['SENDGRID_API_KEY']
-    if (!send_gri_api_key.nil?)
-      sg = SendGrid::API.new(api_key: send_gri_api_key)
-      response = sg.client.mail._('send').post(request_body: mail.to_json)
-    end
+    #content = SendGrid::Content.new(type: 'text/html', value: sua_senha_eh)
+    #mail = SendGrid::Mail.new(from, subject, to, content)
+    #send_gri_api_key = ENV['SENDGRID_API_KEY']
+    #if (!send_gri_api_key.nil?)
+    #  sg = SendGrid::API.new(api_key: send_gri_api_key)
+    #  response = sg.client.mail._('send').post(request_body: mail.to_json)
+    #end
+    @person.send_email
     redirect_to '/people'
     #@person.destroy
     #respond_to do |format|

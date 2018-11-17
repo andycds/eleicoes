@@ -12,15 +12,16 @@ class Person < ActiveRecord::Base
 
 	def body
 		"<html><body><p>" +
-				"Prezado(a)</p>" +
-				"<p>Estamos encaminhando a seguir o seu login e a sua senha para que você possa exercer o seu direito de votação:</p>" +
-				"<p></p>" +
-      			"<p><b>LOGIN: " + self.documento.to_s + "</b></p>" +
-      			"<p><b>SENHA: " + self.senha.to_s + "</b></p>" +
-      			"<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +
-      			"<p></p>" +
-      			"<p><b>Obs: login/senha são informações individuais de inteira única e exclusiva responsabilidade do eleitor. Em caso de perda do login/senha entre em contato com o CONRE</b></p>" +
-      			"<p>Exerça o seu direito e vote pela internet. Sua participação no processo eleitoral é muito importante.</p>".to_s
+		"Prezado(a)</p>" +
+		"<p>Estamos encaminhando a seguir o seu login e a sua senha para que você possa exercer o seu direito de votação:</p>" +
+		"<p></p>" +
+		"<p><b>LOGIN: " + self.documento.to_s + "</b></p>" +
+		"<p><b>SENHA: " + self.senha.to_s + "</b></p>" +
+		"<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +
+		"<p></p>" +
+		"<p>Início: 21/11 às 0h, encerramento: 22/11 às 20h.</p>" +
+		"<p><b>Obs: login/senha são informações individuais de inteira, única e exclusiva responsabilidade do eleitor. Em caso de perda do login/senha entre em contato com o CONRE</b></p>" +
+		"<p>Exerça o seu direito e vote pela internet. Sua participação no processo eleitoral é muito importante.</p>".to_s
     end
 
     def subject

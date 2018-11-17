@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
 	end
 
 	def sender
-		@person.conselho == "CONRE2" ? "secretaria@conre2.org.br" : "eleicoes@conre4.org.br"
+		self.conselho == "CONRE2" ? "secretaria@conre2.org.br" : "eleicoes@conre4.org.br"
 	end
 
 	def body

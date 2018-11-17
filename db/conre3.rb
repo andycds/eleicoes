@@ -22,6 +22,8 @@ c35 = Candidate.create(nome: "NARA REGINA SPALL MARTINS", election: e3)
 
 pass = "$2a$10$VUV4fDA3cA.MqOMQsus1BejyOUJRR1VpjwhzaY79EBW5ehO74wu0."
 
+Person.create(nome: "master3", email: "", conselho: "CONRE3", documento: "master3", election: e3, password_digest: BCrypt::Password.create("master3"))
+
 textoEleitores = "#{Rails.root}/db/eleitores3.bin"
 File.foreach(textoEleitores) { |x|
 	pessoa = x.split("\t")

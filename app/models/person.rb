@@ -29,7 +29,7 @@ class Person < ActiveRecord::Base
 			"<p>Conforme Instrução 124 do Conselho Federal de Estatística (CONFE), informamos que a eleição para renovação de 1/3 " +
 			"dos conselheiros do CONRE 4 será das 0h do dia 21/11 até as 20h do dia 22/11. A fim de facilitar a participação, o CONRE 4 " + 
 			"fará a eleição de 2018 <b>exclusivamente pela internet</b>. Você pode ler mais sobre o processo eleitoral, incluindo os candidatos, " + 
-			"neste link: <a href='http://conre4.org.br/Eleic2018'>http://conre4.org.br/Eleic2018</a>.</p>" +
+			"neste link: <a href='http://conre4.org.br/Eleic2018.asp'>http://conre4.org.br/Eleic2018.asp</a>.</p>" +
 			"<p>Abaixo estão os dados para que você possa acessar o sistema e realizar o seu voto.</p>" +
 			"<p></p>" +
 			"<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +

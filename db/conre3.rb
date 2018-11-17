@@ -3,12 +3,19 @@ e3 = Election.where('nome LIKE ?', "%CONRE-3%").first
 
 # Candidatos CONRE-3
 
-c31 = Candidate.create(nome: "MARCELO VENTURA FREIRE", election: e3)
-c32 = Candidate.create(nome: "MARCOS ANTONIO COQUE JUNIOR", election: e3) 
-c33 = Candidate.create(nome: "MAURO CORREIA ALVES", election: e3)
-c34 = Candidate.create(nome: "NATHÁLIA DEMETRIO VASCONCELOS MOURA", election: e3)
-c35 = Candidate.create(nome: "PAULO CESAR FERREIRA LIMA", election: e3)
-c36 = Candidate.create(nome: "REGINA ALBANESE POSE", election: e3)
+c31 = Candidate.create(nome: "ADRIANA MARIA MARQUES DA SILVA", election: e3)
+c32 = Candidate.create(nome: "ANGELA TAVARES PAES", election: e3)
+c33 = Candidate.create(nome: "JULIO ADOLFO ZUCON TRECENTI", election: e3)
+c34 = Candidate.create(nome: "MARCUS EMMANUEL SOARES DE ARAUJO", election: e3)
+c35 = Candidate.create(nome: "NARA REGINA SPALL MARTINS", election: e3)
+
+
+#c31 = Candidate.create(nome: "MARCELO VENTURA FREIRE", election: e3)
+#c32 = Candidate.create(nome: "MARCOS ANTONIO COQUE JUNIOR", election: e3) 
+#c33 = Candidate.create(nome: "MAURO CORREIA ALVES", election: e3)
+#c34 = Candidate.create(nome: "NATHÁLIA DEMETRIO VASCONCELOS MOURA", election: e3)
+#c35 = Candidate.create(nome: "PAULO CESAR FERREIRA LIMA", election: e3)
+#c36 = Candidate.create(nome: "REGINA ALBANESE POSE", election: e3)
 
     
 # Eleitores CONRE-3

@@ -13,6 +13,6 @@ pass = "$2a$10$VUV4fDA3cA.MqOMQsus1BejyOUJRR1VpjwhzaY79EBW5ehO74wu0."
 textoEleitores = "#{Rails.root}/db/eleitores4.bin"
 File.foreach(textoEleitores) { |x|
 	pessoa = x.split("\t")
-	Person.create(nome: pessoa[2].titleize, conselho: "CONRE4", documento: pessoa[0], election: e5, password_digest: BCrypt::Password.create(pessoa[1]))
+	Person.create(nome: pessoa[2].titleize, conselho: "CONRE4", documento: pessoa[0], election: e5, senha: pessoa[1], email: pessoa[3], password_digest: BCrypt::Password.create(pessoa[1]))
 }
 

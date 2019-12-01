@@ -26,10 +26,9 @@ class Person < ActiveRecord::Base
 		else
 			"<html><body><p>" +
 			"Prezado(a) estatístico(a) <b>" + self.nome + "</b>,</p>" +
-			"<p>Conforme Instrução 124 do Conselho Federal de Estatística (CONFE), informamos que a eleição para renovação de 1/3 " +
-			"dos conselheiros do CONRE 4 será das 0h do dia 21/11 até as 20h do dia 22/11. A fim de facilitar a participação, o CONRE 4 " + 
-			"fará a eleição de 2018 <b>exclusivamente pela internet</b>. Você pode ler mais sobre o processo eleitoral, incluindo os candidatos, " + 
-			"neste link: <a href='http://conre4.org.br/Eleic2018.asp'>http://conre4.org.br/Eleic2018.asp</a>.</p>" +
+			"<p>Conforme Instrução 127, de 03 de Setembro de 2019, do Conselho Federal de Estatística (CONFE), informamos que a eleição para renovação de 1/3 " +
+			"dos conselheiros do CONRE 4 será das 0h do dia 04/12 até as 20h do dia 05/12. A fim de facilitar a participação, o CONRE 4 " + 
+			"fará a eleição de 2019 <b>exclusivamente pela internet</b>." + 
 			"<p>Abaixo estão os dados para que você possa acessar o sistema e realizar o seu voto.</p>" +
 			"<p></p>" +
 			"<p><a href='https://eleicoes.herokuapp.com/'>https://eleicoes.herokuapp.com/</a></p>" +
@@ -41,12 +40,12 @@ class Person < ActiveRecord::Base
 			"justificar a sua ausência terá que pagar multa de 50% do valor da anuidade.</p>" +
 			"<p>Atenciosamente, </p>" +
 			"<p>Gabriel Afonso Marchesi Lopes<br/>" +
-			"Presidente CONRE 4 </p>".to_s
+			"Presidente do Conselho Regional de Estatística da 4ª Região – PR/SC/RS</p>".to_s
 		end
     end
 
     def subject
-    	'ELEIÇÕES 2018 - ' + self.conselho + ' - login e senha'
+    	'ELEIÇÕES 2019 - ' + self.conselho + ' - login e senha'
     end
 
 	def send_email

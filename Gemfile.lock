@@ -114,7 +114,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rdoc (6.0.4)
+    rdoc (6.3.2)
     ruby_http_client (3.3.0)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
